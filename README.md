@@ -6,7 +6,7 @@
 
 ## What is this?
 
-This is a **Go** application, with basic unit tests, for which coverage is uploaded to Codecov on a daily basis. It can also serve as an example for how to integrate Codecov into your Go project. If the build is passing for this project, then Codecov's Kotlin report processing is functional and correct on codecov.io.
+This is a **Go** application, with basic unit tests, for which coverage is uploaded to Codecov on a daily basis. It can also serve as an example for how to integrate Codecov into your Go project. If the build is passing for this project, then Codecov's Go report processing is functional and correct on codecov.io.
 
 ## Configuration
 
