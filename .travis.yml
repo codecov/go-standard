@@ -2,6 +2,7 @@ language: go
 go:
   - master
 before_install:
-  - pyenv install 3.6
+  - pyenv install 3.6.0
 script:
   - go test -race -coverprofile=coverage.txt -covermode=atomic
+  - bash <(curl -s https://codecov.io/bash)
