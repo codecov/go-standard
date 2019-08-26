@@ -3,6 +3,8 @@ go:
   - master
 before_install:
   - pyenv install 3.6.0
+  - pip install requests
 script:
   - go test -race -coverprofile=coverage.txt -covermode=atomic
   - bash <(curl -s https://codecov.io/bash)
+  - python request.py
