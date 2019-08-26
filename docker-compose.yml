@@ -1,0 +1,5 @@
+version: "3"
+services:
+  go:
+    build: ./
+    command: ./entrypoint.sh
