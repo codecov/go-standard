@@ -1,0 +1,7 @@
+language: go
+go:
+  - master
+before_install:
+  - pyenv install 3.6
+script:
+  - go test -race -coverprofile=coverage.txt -covermode=atomic
