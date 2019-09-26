@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/codecov/go-Standard.svg?branch=master)](https://travis-ci.org/codecov/go-Standard) [![codecov](https://codecov.io/gh/codecov/go-Standard/branch/master/graph/badge.svg)](https://codecov.io/gh/codecov/go-Standard)
 
-### Last Updated: 09/25/19 17:07:20
+### Last Updated: 09/26/19 17:07:29
 
 ## What is this?
 
