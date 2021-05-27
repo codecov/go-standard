@@ -1,0 +1,38 @@
+name: Github Actions Go Standard
+on: [push]
+# on:
+#   push:
+#     branches:
+#       - master
+#   pull_request:
+#     branches:
+#       - master
+jobs:
+  standard-upload:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 2
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+      - name: Set up JDK 11
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+          distribution: 'adopt'
+      - name: Before Install
+        run: |
+          pip install requests
+      - name: Run Script
+        env:
+          API_KEY: ${{ secrets.API_KEY }}
+          EXPECTED_COVERAGE: ${{ secrets.EXPECTED_COVERAGE }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          go test -race -coverprofile=coverage.txt -covermode=atomic
+          bash <(curl -s https://codecov.io/bash)
+          python request.py
+          ./upstream.sh
