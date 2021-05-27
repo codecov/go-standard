@@ -22,6 +22,8 @@ echo "Copying the coverage file and SHA.txt to the coverage directory"
 cp ../$PROJECT_NAME/$COVERAGE_SOURCE_FILE $COVERAGE_DEST_DIR/
 cp ../$PROJECT_NAME/SHA.txt $COVERAGE_DEST_DIR/
 echo "Commiting and pushing the coverage data to the standards repo."
+git config --global user.email "devops@codecov.local"
+git config --global user.name "Codecov Devops"
 git add coverage_data
 git commit -m "Updating coverage data for $PROJECT_NAME with SHA $COVERAGE_SHA"
 git push origin --force
