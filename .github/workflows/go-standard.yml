@@ -1,12 +1,11 @@
 name: Github Actions Go Standard
-on: [push]
-# on:
-#   push:
-#     branches:
-#       - master
-#   pull_request:
-#     branches:
-#       - master
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
 jobs:
   standard-upload:
     runs-on: ubuntu-latest
