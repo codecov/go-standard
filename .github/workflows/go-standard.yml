@@ -37,5 +37,4 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         if: ${{ github.event_name == 'push'}}
-        run: |
-          ./upstream.sh
+        run: ./upstream.sh
