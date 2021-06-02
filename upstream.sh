@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-stat coverage.txt
 # Update this to the coverage file you want to upload to the standards repo
 COVERAGE_SOURCE_FILE=coverage.txt
 ls
@@ -20,16 +19,16 @@ cd standards
 echo "Creating the coverage_data directory if it does not exist"
 COVERAGE_DEST_DIR="coverage_data/$PROJECT_NAME"
 mkdir -p $COVERAGE_DEST_DIR
-git rm --cached -r $COVERAGE_DEST_DIR
+echo "Delete all files that aren't SHA.txt if they exist"
+cd $COVERAGE_DEST_DIR/ && ls | grep -v 'SHA.txt' | xargs rm && cd -
 echo "Copying the coverage file and SHA.txt to the coverage directory"
-cp ../$PROJECT_NAME/$COVERAGE_SOURCE_FILE $COVERAGE_DEST_DIR/
+COVERAGE_DEST_FILE="${COVERAGE_SHA:0:6}-coverage.txt"
+cat ../$PROJECT_NAME/$COVERAGE_SOURCE_FILE > $COVERAGE_DEST_DIR/$COVERAGE_DEST_FILE
 cp ../$PROJECT_NAME/SHA.txt $COVERAGE_DEST_DIR/
 echo "Commiting and pushing the coverage data to the standards repo."
 git config --global user.email "devops@codecov.local"
 git config --global user.name "Codecov Devops"
-git status
 git add coverage_data
-git diff --stat --cached origin/master
-# git commit -m "Updating coverage data for $PROJECT_NAME with SHA $COVERAGE_SHA"
-# git push origin --force
+git commit -m "Updating coverage data for $PROJECT_NAME with SHA $COVERAGE_SHA"
+git push origin --force
 echo "Push to upstream complete!"
