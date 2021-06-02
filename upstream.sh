@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
+stat coverage.txt
 # Update this to the coverage file you want to upload to the standards repo
 COVERAGE_SOURCE_FILE=coverage.txt
-
+ls
+cat coverage.txt
 # -=- Nothing below here should need to be changed -=-
 
 echo "Starting the coverage data push to the standards repo..."
@@ -26,5 +28,6 @@ git config --global user.email "devops@codecov.local"
 git config --global user.name "Codecov Devops"
 git add coverage_data
 git commit -m "Updating coverage data for $PROJECT_NAME with SHA $COVERAGE_SHA"
+git status
 git push origin --force
 echo "Push to upstream complete!"
