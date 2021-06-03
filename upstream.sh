@@ -2,8 +2,6 @@
 
 # Update this to the coverage file you want to upload to the standards repo
 COVERAGE_SOURCE_FILE=coverage.txt
-ls
-cat coverage.txt
 # -=- Nothing below here should need to be changed -=-
 
 echo "Starting the coverage data push to the standards repo..."
