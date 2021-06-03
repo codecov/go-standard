@@ -25,7 +25,7 @@ jobs:
       - name: Before Install
         run: |
           pip install requests
-      - name: Run Script
+      - name: Run Tests
         env:
           API_KEY: ${{ secrets.API_KEY }}
           EXPECTED_COVERAGE: ${{ secrets.EXPECTED_COVERAGE }}
