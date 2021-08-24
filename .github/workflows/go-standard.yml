@@ -1,11 +1,11 @@
 name: Github Actions Go Standard
-on:
-  push:
-    branches:
-      - master
-  pull_request:
-    branches:
-      - master
+on: [push]
+  # push:
+  #   branches:
+  #     - master
+  # pull_request:
+  #   branches:
+  #     - master
 jobs:
   test-and-upstream:
     runs-on: ubuntu-latest
@@ -31,15 +31,17 @@ jobs:
           EXPECTED_COVERAGE: ${{ secrets.EXPECTED_COVERAGE }}
         run: |
           go test -race -coverprofile=coverage.txt -covermode=atomic
-          bash <(curl -s https://codecov.io/bash)
+          curl -Os https://uploader.codecov.io/latest/alpine/codecov
+          chmod +x codecov
+          ./codecov -t ${CODECOV_TOKEN}
           python request.py
-      - name: Upstream to Standards
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          COVERAGE_SOURCE_FILE: ${{ secrets.COVERAGE_SOURCE_FILE }}
-        if: ${{ github.event_name == 'push'}}
-        run: |
-          wget --header "Authorization: token ${GH_TOKEN}" \
-          --header "Accept: application/vnd.github.v3.raw" \
-          https://api.github.com/repos/codecov/standards/contents/upstream.sh
-          bash upstream.sh
+      # - name: Upstream to Standards
+      #   env:
+      #     GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      #     COVERAGE_SOURCE_FILE: ${{ secrets.COVERAGE_SOURCE_FILE }}
+      #   if: ${{ github.event_name == 'push'}}
+      #   run: |
+      #     wget --header "Authorization: token ${GH_TOKEN}" \
+      #     --header "Accept: application/vnd.github.v3.raw" \
+      #     https://api.github.com/repos/codecov/standards/contents/upstream.sh
+      #     bash upstream.sh
