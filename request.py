@@ -20,7 +20,7 @@ commit_data = all_data['commits'][0]
 coverage_percentage = commit_data['totals']['c']
 
 print("Ensuring coverage percentage is accurate...")
-# Result should return 62.50000 as its coverage metric
+# Result should return 66.66667 as its coverage metric
 expected_coverage = os.environ['EXPECTED_COVERAGE']
 
 if(coverage_percentage == expected_coverage): 

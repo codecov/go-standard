@@ -31,7 +31,9 @@ jobs:
           EXPECTED_COVERAGE: ${{ secrets.EXPECTED_COVERAGE }}
         run: |
           go test -race -coverprofile=coverage.txt -covermode=atomic
-          bash <(curl -s https://codecov.io/bash)
+          curl -Os https://uploader.codecov.io/latest/linux/codecov
+          chmod +x codecov
+          ./codecov -t ${CODECOV_TOKEN}
           python request.py
       - name: Upstream to Standards
         env:
