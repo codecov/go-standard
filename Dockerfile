@@ -1,11 +1,7 @@
 FROM golang:latest
 
-WORKDIR /app
+COPY . /go
 
-COPY go.mod ./
-RUN go mod download
+RUN chmod +x /go/entrypoint.sh
 
-COPY . ./
-RUN chmod +x /app/entrypoint.sh
-
-ENTRYPOINT [ "/app/entrypoint.sh" ]
+ENTRYPOINT [ "/go/entrypoint.sh" ]
