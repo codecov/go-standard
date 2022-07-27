@@ -3,7 +3,7 @@
 [![Workflow for Go Standard Action](https://github.com/codecov/go-standard/actions/workflows/go-standard.yml/badge.svg)](https://github.com/codecov/go-standard/actions/workflows/go-standard.yml)[![codecov](https://codecov.io/gh/codecov/go-Standard/branch/master/graph/badge.svg)](https://codecov.io/gh/codecov/go-Standard)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fcodecov%2Fgo-standard.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fcodecov%2Fgo-standard?ref=badge_shield)
 
-### Last Updated: 07/27/22 00:18:24
+### Last Updated: 07/26/22 00:15:58
 
 ## What is this?
 
@@ -19,7 +19,7 @@ This project is written in `Go`. Unit test are written using the go `testing` fr
 
 Run unit tests inside a Docker container
 ```bash
-docker-compose up
+./local.sh
 ```
 
 ### The Local Way
