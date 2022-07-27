@@ -19,7 +19,8 @@ This project is written in `Go`. Unit test are written using the go `testing` fr
 
 Run unit tests inside a Docker container
 ```bash
-docker-compose up
+chmod +x local.sh
+./local.sh
 ```
 
 ### The Local Way
