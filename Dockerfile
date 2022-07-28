@@ -2,10 +2,8 @@ FROM golang:latest
 
 WORKDIR /app
 
-COPY go.mod ./
-RUN go mod download
-
 COPY . ./
-RUN chmod +x /app/entrypoint.sh
+
+RUN go mod download
 
 ENTRYPOINT [ "/app/entrypoint.sh" ]
