@@ -3,7 +3,7 @@
 [![Workflow for Go Standard Action](https://github.com/codecov/go-standard/actions/workflows/go-standard.yml/badge.svg)](https://github.com/codecov/go-standard/actions/workflows/go-standard.yml)[![codecov](https://codecov.io/gh/codecov/go-Standard/branch/master/graph/badge.svg)](https://codecov.io/gh/codecov/go-Standard)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fcodecov%2Fgo-standard.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fcodecov%2Fgo-standard?ref=badge_shield)
 
-### Last Updated: 10/18/22 00:23:59
+### Last Updated: 10/19/22 00:22:24
 
 ## What is this?
 
